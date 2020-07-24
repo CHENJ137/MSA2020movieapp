@@ -27,7 +27,7 @@ function SearchBar(props: ISearchBarProps) {
     const [HasFocus, setHasFocus] = useState<boolean>(false);
 
     const handleSubmit = () => {
-        console.log(SearchTitle);
+        console.log(SearchTitle + SearchType);
 
         if (SearchTitle?.length !== 0 && SearchTitle !== null && SearchTitle !== "") {
             let UserInput: IUserInput = {
@@ -66,27 +66,28 @@ function SearchBar(props: ISearchBarProps) {
                     onChange={e => handleSearchYearChange(e.target.value)}
                 />
             </Grid>
-            <Grid item xs={6} sm={3}>
+            <Grid item xs={6} sm={3} >
                 <TextField
                     select
                     id="outlined-required"
                     label="Type"
                     variant="outlined"
+                    className="MenuItem" 
                     onClick={() => setHasFocus(true)}
                     value={SearchType}
                     onChange={e => handleSearchTypeChange(e.target.value)}
                 >
-                    <MenuItem value="">
+                    <MenuItem value="" >
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={"movie"}>Movie</MenuItem>
-                    <MenuItem value={"series"}>TV series</MenuItem>
-                    <MenuItem value={"episode"}>Episode</MenuItem>
+                    <MenuItem value={"movie"} >Movie</MenuItem>
+                    <MenuItem value={"series"} >TV series</MenuItem>
+                    <MenuItem value={"episode"} >Episode</MenuItem>
                 </TextField>
             </Grid>
             <Grid item xs={6} sm={3}>
                 <Button variant="contained" color="primary" onClick={handleSubmit}>
-                    Submit
+                    Search
                 </Button>
             </Grid>
         </Grid>

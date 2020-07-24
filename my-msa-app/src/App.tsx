@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div className="App">
-       <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)}/>
-       <ResultGrid />
+       <SearchBar SetUserInput={SetUserInput}/>
+       <ResultGrid SearchTitle={UserInput.SearchTitle} SearchYear={UserInput.SearchYear} SearchType={UserInput.SearchType}/>
     </div>
   );
 }

@@ -1,46 +1,24 @@
 import React from 'react';
 import { Paper, Grid, Typography, Link } from '@material-ui/core';
+import noImage from '../../Common/no-image.jpg';
 
-// interface IResultCardProps {
-//     Poster: string | undefined;
-//     Description: string | undefined;
-// }
+interface IResultCardProps {
+    Title: string | undefined;
+    Year: string | undefined;
+    imdbID: string | undefined;
+    Type: string | undefined;
+    Poster: string | undefined;
+}
 
-function ResultCard() {
+function ResultCard(props: IResultCardProps) {
+
     return (
         <div>
-            <Paper >
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <Link href="http://baidu.com" >
-                            <img alt="complex" src="https://m.media-amazon.com/images/M/MV5BMzIxOTQyODU1OV5BMl5BanBnXkFtZTcwMDQ4Mjg4Nw@@._V1_SX300.jpg" />
-                        </Link>
-                    </Grid>
-                    <Grid item xs={12} sm container>
-                        <Grid item xs container direction="column" spacing={2}>
-                            <Grid item xs>
-                                <Typography gutterBottom variant="subtitle1">
-                                    Standard license
-                                </Typography>
-                                <Typography variant="body2" gutterBottom>
-                                    Full resolution 1920x1080 • JPEG
-                                </Typography>
-                                <Typography variant="body2" color="textSecondary">
-                                    ID: 1030114
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                    Remove
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="subtitle1">$19.00</Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Paper>
+            <p>{props.Title}</p>
+            <p>{props.Year}</p>
+            <p>{props.imdbID}</p>
+            <p>{props.Type}</p>
+            <p>{props.Poster}</p>
         </div>
     )
 }
