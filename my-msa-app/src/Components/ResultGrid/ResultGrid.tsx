@@ -45,22 +45,19 @@ function ResultGrid(props: IResultGridProps) {
                 };
             }).catch(() => console.log("it didn't work")
             );
-    }, [props.SearchTitle]);
-
-    console.log(ItemArray);
+    }, [props.SearchTitle, props.SearchYear, props.SearchType, apikey]);
 
     let Cards: JSX.Element[] = [];
 
     if ( !ItemArray[0]["Title"] ) {
-        Cards = [<h3>No results found.</h3>];
-        console.log(Cards);
+        Cards = [<h3 >No results found.</h3>];
     } else {
         ItemArray.forEach((el: IState, i: Number) => {
             if (!el || !el.Title) {
                 return;
             } else {
                 Cards.push(
-                    <Grid key={"card_" + i} item sm={6} md={4} lg={3} className="MediaGridCard">
+                    <Grid key={"card_" + i} item sm={6} md={4} lg={3} className="GridCard">
                         <ResultCard Title={el["Title"]} Year={el["Year"]} imdbID={el["imdbID"]} Type={el["Type"]} Poster={el["Poster"]} />
                     </Grid>)
             }
@@ -68,8 +65,10 @@ function ResultGrid(props: IResultGridProps) {
     }
 
     return (
-        <div className="GridContainer" >
-            {Cards}
+        <div >
+            <Grid container spacing={3} className="GridContainer">
+                {Cards}
+            </Grid>
         </div>
     )
 }

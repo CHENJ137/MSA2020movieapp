@@ -4,5 +4,9 @@
 }
 
 .MenuItem {
-    width: 155px;
+    width: 160px;
+}
+
+.MuiGrid-root div{
+    margin: auto;
 }

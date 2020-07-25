@@ -41,58 +41,59 @@ function SearchBar(props: ISearchBarProps) {
         }
     }
 
-    return <div className="SearchBarContainer">
-        <Grid container spacing={3}>
-            <Grid item xs={6} sm={3}>
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Title"
-                    variant="outlined"
-                    error={HasFocus && SearchTitle === ""}
-                    onClick={() => setHasFocus(true)}
-                    value={SearchTitle}
-                    onChange={e => handleSearchTitleChange(e.target.value)}
-                />
+    return (
+        <div className="SearchBarContainer">
+            <Grid container spacing={1}>
+                <Grid item xs={6} sm={3}>
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Title"
+                        variant="outlined"
+                        error={HasFocus && SearchTitle === ""}
+                        onClick={() => setHasFocus(true)}
+                        value={SearchTitle}
+                        onChange={e => handleSearchTitleChange(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={6} sm={3}>
+                    <TextField
+                        type="number"
+                        id="outlined-required"
+                        label="Year"
+                        variant="outlined"
+                        onClick={() => setHasFocus(true)}
+                        value={SearchYear}
+                        onChange={e => handleSearchYearChange(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={6} sm={3} >
+                    <TextField
+                        select
+                        id="outlined-required"
+                        label="Type"
+                        variant="standard"
+                        className="MenuItem"
+                        onClick={() => setHasFocus(true)}
+                        value={SearchType}
+                        onChange={e => handleSearchTypeChange(e.target.value)}
+                    >
+                        <MenuItem value="" >
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={"movie"} >Movie</MenuItem>
+                        <MenuItem value={"series"} >TV series</MenuItem>
+                        <MenuItem value={"episode"} >Episode</MenuItem>
+                    </TextField>
+                </Grid>
+                <Grid item xs={6} sm={3} className="SearchButton">
+                    <Button variant="contained" color="primary" onClick={handleSubmit}>
+                        Search
+                    </Button>
+                </Grid>
             </Grid>
-            <Grid item xs={6} sm={3}>
-                <TextField
-                    type="number"
-                    id="outlined-required"
-                    label="Year"
-                    variant="outlined"
-                    onClick={() => setHasFocus(true)}
-                    value={SearchYear}
-                    onChange={e => handleSearchYearChange(e.target.value)}
-                />
-            </Grid>
-            <Grid item xs={6} sm={3} >
-                <TextField
-                    select
-                    id="outlined-required"
-                    label="Type"
-                    variant="outlined"
-                    className="MenuItem" 
-                    onClick={() => setHasFocus(true)}
-                    value={SearchType}
-                    onChange={e => handleSearchTypeChange(e.target.value)}
-                >
-                    <MenuItem value="" >
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={"movie"} >Movie</MenuItem>
-                    <MenuItem value={"series"} >TV series</MenuItem>
-                    <MenuItem value={"episode"} >Episode</MenuItem>
-                </TextField>
-            </Grid>
-            <Grid item xs={6} sm={3}>
-                <Button variant="contained" color="primary" onClick={handleSubmit}>
-                    Search
-                </Button>
-            </Grid>
-        </Grid>
-    </div>
-
+        </div>
+    )
 };
 
 export default SearchBar;

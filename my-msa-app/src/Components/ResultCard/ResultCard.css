@@ -1,0 +1,15 @@
+.CardImage{
+    height: 500px;
+    width: 350px;
+    background-image: url(../../Common/no-image.jpg);
+}
+
+.CardInfo{
+    max-width: 350px;
+    height: 160px;
+}
+
+.CardContainer{
+    max-height: 700px;
+    margin: 16px;
+}
